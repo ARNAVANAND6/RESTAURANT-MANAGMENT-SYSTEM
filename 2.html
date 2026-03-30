@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Golden Fork - Authentic Indian Cuisine</title>
+    <style>
+:root {
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-cream-50: rgba(252, 252, 249, 1);
+  --color-cream-100: rgba(255, 255, 253, 1);
+  --color-gray-200: rgba(245, 245, 245, 1);
+  --color-gray-300: rgba(167, 169, 169, 1);
+  --color-gray-400: rgba(119, 124, 124, 1);
+  --color-slate-500: rgba(98, 108, 113, 1);
+  --color-brown-600: rgba(94, 82, 64, 1);
+  --color-charcoal-700: rgba(31, 33, 33, 1);
+  --color-charcoal-800: rgba(38, 40, 40, 1);
+  --color-slate-900: rgba(19, 52, 59, 1);
+  --color-teal-300: rgba(50, 184, 198, 1);
+  --color-teal-400: rgba(45, 166, 178, 1);
+  --color-teal-500: rgba(33, 128, 141, 1);
+  --color-teal-600: rgba(29, 116, 128, 1);
+  --color-teal-700: rgba(26, 104, 115, 1);
+  --color-red-400: rgba(255, 84, 89, 1);
+  --color-red-500: rgba(192, 21, 47, 1);
+  --color-orange-400: rgba(230, 129, 97, 1);
+  --color-orange-500: rgba(168, 75, 47, 1);
+
+  --color-brown-600-rgb: 94, 82, 64;
+  --color-teal-500-rgb: 33, 128, 141;
+  --color-slate-900-rgb: 19, 52, 59;
+  --color-slate-500-rgb: 98, 108, 113;
+
+  --color-bg-1: rgba(59, 130, 246, 0.08);
+  --color-bg-2: rgba(245, 158, 11, 0.08);
+  --color-bg-3: rgba(34, 197, 94, 0.08);
+  --color-bg-4: rgba(239, 68, 68, 0.08);
+
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+
+  --color-gold: #D4AF37;
+  --color-gold-dark: #B8941F;
+  --color-dark-brown: #3E2723;
+  --color-orange: #FF6F00;
+  --color-cream-bg: #F5E6D3;
+
+  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-serif: Georgia, "Playfair Display", serif;
+  
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+
+  --radius-base: 8px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-gray-400-rgb: 119, 124, 124;
+    --color-gray-200-rgb: 245, 245, 245;
+    --color-background: var(--color-charcoal-700);
+    --color-surface: var(--color-charcoal-800);
+    --color-text: var(--color-gray-200);
+    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+    --color-primary: var(--color-teal-300);
+    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+/* Navigation */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  z-index: 1000;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-16) var(--space-24);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: var(--font-family-serif);
+  color: var(--color-gold);
+  text-decoration: none;
+}
+
+.nav-menu {
+  display: flex;
+  gap: var(--space-32);
+  list-style: none;
+  align-items: center;
+}
+
+.nav-menu a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+  color: var(--color-gold);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--color-orange) 0%, var(--color-dark-brown) 100%);
+  color: white;
+  text-align: center;
+  padding: var(--space-64) var(--space-24);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(62, 39, 35, 0.8) 100%);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-family: var(--font-family-serif);
+  margin-bottom: var(--space-16);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: var(--space-32);
+  opacity: 0.95;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--space-16);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: var(--space-12) var(--space-32);
+  border-radius: var(--radius-base);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: var(--color-gold);
+  color: var(--color-dark-brown);
+}
+
+.btn-primary:hover {
+  background: var(--color-gold-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-secondary:hover {
+  background: white;
+  color: var(--color-dark-brown);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-48) var(--space-24);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  font-family: var(--font-family-serif);
+  color: var(--color-dark-brown);
+  margin-bottom: var(--space-48);
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-24);
+  margin-bottom: var(--space-64);
+}
+
+.feature-card {
+  background: var(--color-surface);
+  padding: var(--space-32);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  border: 1px solid var(--color-card-border);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-icon {
+  font-size: 48px;
+  margin-bottom: var(--space-16);
+}
+
+.feature-card h3 {
+  font-size: 20px;
+  margin-bottom: var(--space-12);
+  color: var(--color-gold);
+}
+
+/* Highlights */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-32);
+  margin-bottom: var(--space-64);
+}
+
+.highlight-card {
+  background: var(--color-surface);
+  padding: var(--space-32);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+}
+
+.highlight-card h3 {
+  color: var(--color-gold);
+  margin-bottom: var(--space-16);
+  font-family: var(--font-family-serif);
+}
+
+.rating {
+  color: var(--color-gold);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Menu Preview */
+.menu-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-24);
+  margin-bottom: var(--space-32);
+}
+
+.menu-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-card-border);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.menu-card-image {
+  width: 100%;
+  height: 200px;
+  background: var(--color-bg-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+}
+
+.menu-card-content {
+  padding: var(--space-24);
+}
+
+.menu-card h3 {
+  color: var(--color-dark-brown);
+  margin-bottom: var(--space-8);
+}
+
+.menu-card-price {
+  color: var(--color-gold);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: var(--space-8);
+}
+
+.menu-card p {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.dietary-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: var(--space-8);
+}
+
+.badge-veg {
+  background: var(--color-bg-3);
+  color: #15803d;
+}
+
+.badge-non-veg {
+  background: var(--color-bg-4);
+  color: #b91c1c;
+}
+
+/* Testimonials */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-24);
+  margin-bottom: var(--space-64);
+}
+
+.testimonial-card {
+  background: var(--color-surface);
+  padding: var(--space-32);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+  position: relative;
+}
+
+.testimonial-stars {
+  color: var(--color-gold);
+  font-size: 20px;
+  margin-bottom: var(--space-12);
+}
+
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: var(--space-16);
+  color: var(--color-text-secondary);
+}
+
+.testimonial-author {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Location Section */
+.location-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-32);
+  background: var(--color-surface);
+  padding: var(--space-32);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+}
+
+.location-map {
+  background: var(--color-bg-1);
+  height: 300px;
+  border-radius: var(--radius-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+
+.location-details h3 {
+  color: var(--color-gold);
+  margin-bottom: var(--space-16);
+}
+
+.location-details p {
+  margin-bottom: var(--space-12);
+  color: var(--color-text-secondary);
+}
+
+.hours-table {
+  margin-top: var(--space-16);
+}
+
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-8) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Menu Page */
+.menu-filters {
+  background: var(--color-surface);
+  padding: var(--space-24);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-32);
+  border: 1px solid var(--color-card-border);
+}
+
+.filter-group {
+  margin-bottom: var(--space-16);
+}
+
+.filter-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--space-8);
+  color: var(--color-text);
+}
+
+.filter-buttons {
+  display: flex;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: var(--space-8) var(--space-16);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  border-radius: var(--radius-base);
+  cursor: pointer;
+  transition: all 0.3s;
+  color: var(--color-text);
+}
+
+.filter-btn:hover {
+  background: var(--color-secondary);
+}
+
+.filter-btn.active {
+  background: var(--color-gold);
+  color: var(--color-dark-brown);
+  border-color: var(--color-gold);
+}
+
+.search-box {
+  width: 100%;
+  padding: var(--space-12);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  font-size: 16px;
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-24);
+}
+
+.menu-item {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  border: 1px solid var(--color-card-border);
+  transition: all 0.3s;
+}
+
+.menu-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.menu-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: var(--space-12);
+}
+
+.menu-item h3 {
+  color: var(--color-text);
+  font-size: 18px;
+}
+
+.menu-item-price {
+  color: var(--color-gold);
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.menu-item-meta {
+  display: flex;
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--color-bg-1);
+  color: var(--color-text);
+}
+
+.allergen-badge {
+  background: rgba(255, 193, 7, 0.2);
+  color: #f57c00;
+  border: 1px solid rgba(245, 124, 0, 0.3);
+}
+
+.menu-item-description {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  margin-bottom: var(--space-12);
+}
+
+.menu-item-rating {
+  color: var(--color-gold);
+  font-size: 14px;
+  margin-bottom: var(--space-12);
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: var(--space-24);
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--space-8);
+  color: var(--color-text);
+}
+
+.form-control {
+  width: 100%;
+  padding: var(--space-12);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  font-size: 16px;
+  font-family: var(--font-family-base);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.form-control:focus {
+  outline: 2px solid var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+textarea.form-control {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+}
+
+/* Success Message */
+.success-message {
+  background: var(--color-bg-3);
+  border: 2px solid #15803d;
+  border-radius: var(--radius-lg);
+  padding: var(--space-32);
+  text-align: center;
+  margin-bottom: var(--space-32);
+}
+
+.success-message h2 {
+  color: #15803d;
+  margin-bottom: var(--space-16);
+}
+
+.confirmation-details {
+  background: var(--color-surface);
+  padding: var(--space-24);
+  border-radius: var(--radius-base);
+  margin: var(--space-24) 0;
+  text-align: left;
+}
+
+.confirmation-details p {
+  margin-bottom: var(--space-8);
+  color: var(--color-text);
+}
+
+/* Cart */
+.cart-item {
+  background: var(--color-surface);
+  padding: var(--space-16);
+  border-radius: var(--radius-base);
+  margin-bottom: var(--space-12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--color-card-border);
+}
+
+.cart-summary {
+  background: var(--color-surface);
+  padding: var(--space-24);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+  margin-top: var(--space-24);
+}
+
+.cart-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-8) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cart-total {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: var(--space-16);
+  padding-top: var(--space-16);
+  border-top: 2px solid var(--color-border);
+}
+
+/* Footer */
+.footer {
+  background: var(--color-dark-brown);
+  color: white;
+  padding: var(--space-48) var(--space-24);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-32);
+}
+
+.footer-section h3 {
+  color: var(--color-gold);
+  margin-bottom: var(--space-16);
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: var(--space-8);
+}
+
+.footer-section a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: var(--color-gold);
+}
+
+.social-links {
+  display: flex;
+  gap: var(--space-16);
+}
+
+.social-link {
+  font-size: 24px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: var(--space-8);
+  margin-top: var(--space-16);
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: var(--space-12);
+  border: none;
+  border-radius: var(--radius-base);
+}
+
+.newsletter-form button {
+  padding: var(--space-12) var(--space-24);
+  background: var(--color-gold);
+  color: var(--color-dark-brown);
+  border: none;
+  border-radius: var(--radius-base);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: var(--space-32) auto 0;
+  padding-top: var(--space-24);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Page Sections */
+.page-section {
+  display: none;
+}
+
+.page-section.active {
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 60px;
+    flex-direction: column;
+    background: var(--color-surface);
+    width: 100%;
+    text-align: center;
+    transition: left 0.3s;
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-24);
+    gap: var(--space-16);
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .features-grid,
+  .highlights,
+  .menu-preview-grid,
+  .testimonials-grid,
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .location-info {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-32 {
+  margin-top: var(--space-32);
+}
+
+.mb-32 {
+  margin-bottom: var(--space-32);
+}
+
+.hidden {
+  display: none;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo" onclick="showPage('home')">🍴 The Golden Fork</a>
+            <button class="nav-toggle" onclick="toggleMenu()">
+                ☰
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" onclick="showPage('home')">Home</a></li>
+                <li><a href="#menu" onclick="showPage('menu')">Menu</a></li>
+                <li><a href="#about" onclick="showPage('about')">About</a></li>
+                <li><a href="#reservations" onclick="showPage('reservations')">Reservations</a></li>
+                <li><a href="#delivery" onclick="showPage('delivery')">Delivery</a></li>
+                <li><a href="#contact" onclick="showPage('contact')">Contact</a></li>
+                <li><a href="#" onclick="alert('Login to Management System')">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div class="page-section active" id="home">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Experience Authentic Indian Cuisine</h1>
+                <p>Fresh ingredients, Traditional recipes, Modern comfort</p>
+                <div class="hero-buttons">
+                    <a href="#reservations" class="btn btn-primary" onclick="showPage('reservations')">Reserve Table</a>
+                    <a href="#delivery" class="btn btn-secondary" onclick="showPage('delivery')">Order Online</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🍽️</div>
+                    <h3>Premium Dining</h3>
+                    <p>Comfortable seating with perfect ambiance</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Quick Service</h3>
+                    <p>Average wait time 15-20 minutes</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Allergy Safe</h3>
+                    <p>Complete allergen filtering system</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚗</div>
+                    <h3>Free Delivery</h3>
+                    <p>On orders above ₹1000</p>
+                </div>
+            </div>
+
+            <!-- Restaurant Highlights -->
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="highlights">
+                <div class="highlight-card">
+                    <h3>👨‍🍳 Expert Chefs</h3>
+                    <p>Our experienced chefs bring authentic flavors from across India, trained in traditional cooking methods with modern techniques.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>🌿 Quality Ingredients</h3>
+                    <p>Sourced locally and delivered fresh daily. We prioritize organic produce and sustainable practices.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>⭐ Customer Reviews</h3>
+                    <p class="rating">★★★★★ 4.8/5</p>
+                    <p>Based on 2000+ reviews from satisfied customers</p>
+                </div>
+            </div>
+
+            <!-- Menu Preview -->
+            <h2 class="section-title">Popular Dishes</h2>
+            <div class="menu-preview-grid">
+                <div class="menu-card">
+                    <div class="menu-card-image">🧈</div>
+                    <div class="menu-card-content">
+                        <h3>Paneer Butter Masala</h3>
+                        <div class="menu-card-price">₹280</div>
+                        <p>Rich and creamy tomato-based curry with cottage cheese</p>
+                        <span class="dietary-badge badge-veg">● Veg</span>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-image">🍗</div>
+                    <div class="menu-card-content">
+                        <h3>Butter Chicken</h3>
+                        <div class="menu-card-price">₹340</div>
+                        <p>Tender chicken in rich buttery tomato gravy</p>
+                        <span class="dietary-badge badge-non-veg">● Non-Veg</span>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-image">🦐</div>
+                    <div class="menu-card-content">
+                        <h3>Prawn Curry</h3>
+                        <div class="menu-card-price">₹420</div>
+                        <p>Coastal style prawns in coconut curry</p>
+                        <span class="dietary-badge badge-non-veg">● Non-Veg</span>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-image">🍚</div>
+                    <div class="menu-card-content">
+                        <h3>Vegetable Biryani</h3>
+                        <div class="menu-card-price">₹240</div>
+                        <p>Fragrant basmati rice with mixed vegetables</p>
+                        <span class="dietary-badge badge-veg">● Veg</span>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-image">🍮</div>
+                    <div class="menu-card-content">
+                        <h3>Gulab Jamun</h3>
+                        <div class="menu-card-price">₹80</div>
+                        <p>Sweet milk dumplings in sugar syrup</p>
+                        <span class="dietary-badge badge-veg">● Veg</span>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-image">🥭</div>
+                    <div class="menu-card-content">
+                        <h3>Mango Lassi</h3>
+                        <div class="menu-card-price">₹90</div>
+                        <p>Sweet yogurt-based mango drink</p>
+                        <span class="dietary-badge badge-veg">● Veg</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#menu" class="btn btn-primary" onclick="showPage('menu')">View Full Menu</a>
+            </div>
+
+            <!-- Testimonials -->
+            <h2 class="section-title mt-32">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Amazing food and great ambiance! The service is impeccable and the food quality is consistently excellent."</p>
+                    <p class="testimonial-author">- Rajesh Kumar</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The allergy filtering feature saved my daughter's health! It's great to see a restaurant taking allergies so seriously."</p>
+                    <p class="testimonial-author">- Priya Sharma</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Best restaurant in the city, highly recommended! The flavors are authentic and the portions are generous."</p>
+                    <p class="testimonial-author">- Vikram Singh</p>
+                </div>
+            </div>
+
+            <!-- Location &amp; Hours -->
+            <h2 class="section-title">Visit Us</h2>
+            <div class="location-info">
+                <div class="location-map">📍</div>
+                <div class="location-details">
+                    <h3>Location & Contact</h3>
+                    <p><strong>Address:</strong> 123 Food Street, Delhi NCR, India</p>
+                    <p><strong>Phone:</strong> <a href="tel:+919876543210" style="color: var(--color-gold);">+91-9876543210</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@goldenfork.com" style="color: var(--color-gold);">contact@goldenfork.com</a></p>
+                    
+                    <div class="hours-table">
+                        <h4 style="margin-bottom: var(--space-12);">Operating Hours</h4>
+                        <div class="hours-row">
+                            <span>Lunch</span>
+                            <span>12:00 PM - 3:00 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span>Dinner</span>
+                            <span>6:00 PM - 11:00 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span>Closed</span>
+                            <span style="color: var(--color-orange);">Mondays</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Page -->
+    <div class="page-section" id="menu">
+        <div class="container">
+            <h2 class="section-title">Our Menu</h2>
+            
+            <div class="menu-filters">
+                <div class="filter-group">
+                    <label>Category</label>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="category" data-value="all" onclick="filterMenu('category', 'all', this)">All</button>
+                        <button class="filter-btn" data-filter="category" data-value="Starter" onclick="filterMenu('category', 'Starter', this)">Starters</button>
+                        <button class="filter-btn" data-filter="category" data-value="Main Course" onclick="filterMenu('category', 'Main Course', this)">Main Course</button>
+                        <button class="filter-btn" data-filter="category" data-value="Dessert" onclick="filterMenu('category', 'Dessert', this)">Desserts</button>
+                        <button class="filter-btn" data-filter="category" data-value="Beverage" onclick="filterMenu('category', 'Beverage', this)">Beverages</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label>Price Range</label>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="price" data-value="all" onclick="filterMenu('price', 'all', this)">All</button>
+                        <button class="filter-btn" data-filter="price" data-value="0-200" onclick="filterMenu('price', '0-200', this)">Under ₹200</button>
+                        <button class="filter-btn" data-filter="price" data-value="200-400" onclick="filterMenu('price', '200-400', this)">₹200-₹400</button>
+                        <button class="filter-btn" data-filter="price" data-value="400+" onclick="filterMenu('price', '400+', this)">Above ₹400</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label>Dietary</label>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="dietary" data-value="all" onclick="filterMenu('dietary', 'all', this)">All</button>
+                        <button class="filter-btn" data-filter="dietary" data-value="Vegetarian" onclick="filterMenu('dietary', 'Vegetarian', this)">Veg</button>
+                        <button class="filter-btn" data-filter="dietary" data-value="Non-Vegetarian" onclick="filterMenu('dietary', 'Non-Vegetarian', this)">Non-Veg</button>
+                        <button class="filter-btn" data-filter="dietary" data-value="Vegan" onclick="filterMenu('dietary', 'Vegan', this)">Vegan</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label>Search</label>
+                    <input type="text" class="search-box" placeholder="Search dishes..." oninput="searchMenu(this.value)">
+                </div>
+            </div>
+
+            <div class="menu-grid" id="menuGrid">
+                <!-- Menu items will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- About Page -->
+    <div class="page-section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            
+            <div class="highlight-card mb-32">
+                <h3>Our Journey</h3>
+                <p style="margin-bottom: 16px;">Founded in 2015, The Golden Fork began with a simple mission: to bring authentic Indian cuisine to food lovers in Delhi NCR. What started as a small family restaurant has grown into one of the city's most beloved dining destinations.</p>
+                <p style="margin-bottom: 16px;">Our founders, passionate about preserving traditional recipes while embracing modern culinary techniques, have created a unique dining experience that celebrates India's rich culinary heritage.</p>
+                <p style="margin-bottom: 16px;">Today, we serve over 500 customers daily, each dish prepared with the same care and attention to detail that defined our first day in business.</p>
+            </div>
+
+            <h2 class="section-title">Our Mission &amp; Vision</h2>
+            <div class="highlights">
+                <div class="highlight-card">
+                    <h3>🎯 Mission</h3>
+                    <p>To serve authentic Indian cuisine with modern safety standards, ensuring every customer enjoys delicious, safe food in a welcoming environment.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>👁️ Vision</h3>
+                    <p>To become the most trusted restaurant where every customer gets safe, delicious food tailored to their dietary needs and preferences.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>💎 Values</h3>
+                    <p>Quality, authenticity, safety, and customer satisfaction are at the heart of everything we do.</p>
+                </div>
+            </div>
+
+            <h2 class="section-title mt-32">Meet Our Team</h2>
+            <div class="highlights">
+                <div class="highlight-card">
+                    <h3>👨‍🍳 Head Chef Arjun Mehta</h3>
+                    <p>With 20 years of culinary experience, Chef Arjun specializes in North Indian cuisine and has trained at prestigious culinary institutes.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>👔 Manager Rajesh Kumar</h3>
+                    <p>Rajesh brings 15 years of hospitality management experience, ensuring smooth operations and exceptional customer service.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>👥 Our Staff</h3>
+                    <p>Our dedicated team of 25+ staff members is committed to making your dining experience memorable and enjoyable.</p>
+                </div>
+            </div>
+
+            <h2 class="section-title mt-32">Certifications &amp; Awards</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Food Safety Certified</h3>
+                    <p>FSSAI License No. 12345678901234</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Hygiene Rating</h3>
+                    <p>5-Star Hygiene Rating</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎖️</div>
+                    <h3>Best Restaurant 2024</h3>
+                    <p>Delhi NCR Food Awards</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💯</div>
+                    <h3>Customer Satisfaction</h3>
+                    <p>98% Satisfaction Rate</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reservations Page -->
+    <div class="page-section" id="reservations">
+        <div class="container">
+            <h2 class="section-title">Reserve Your Table</h2>
+            
+            <div id="reservationForm" style="max-width: 600px; margin: 0 auto;">
+                <form onsubmit="submitReservation(event)">
+                    <div class="form-group">
+                        <label class="form-label">Full Name *</label>
+                        <input type="text" class="form-control" id="resName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email *</label>
+                        <input type="email" class="form-control" id="resEmail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Phone Number *</label>
+                        <input type="tel" class="form-control" id="resPhone" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Date *</label>
+                            <input type="date" class="form-control" id="resDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Time *</label>
+                            <select class="form-control" id="resTime" required>
+                                <option value="">Select time</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="12:30 PM">12:30 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="1:30 PM">1:30 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="2:30 PM">2:30 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+                                <option value="6:30 PM">6:30 PM</option>
+                                <option value="7:00 PM">7:00 PM</option>
+                                <option value="7:30 PM">7:30 PM</option>
+                                <option value="8:00 PM">8:00 PM</option>
+                                <option value="8:30 PM">8:30 PM</option>
+                                <option value="9:00 PM">9:00 PM</option>
+                                <option value="9:30 PM">9:30 PM</option>
+                                <option value="10:00 PM">10:00 PM</option>
+                                <option value="10:30 PM">10:30 PM</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Party Size *</label>
+                            <select class="form-control" id="resGuests" required>
+                                <option value="">Select guests</option>
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                                <option value="5">5 Guests</option>
+                                <option value="6">6 Guests</option>
+                                <option value="7">7 Guests</option>
+                                <option value="8">8 Guests</option>
+                                <option value="9">9 Guests</option>
+                                <option value="10">10 Guests</option>
+                                <option value="11">11 Guests</option>
+                                <option value="12">12 Guests</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Table Location</label>
+                            <select class="form-control" id="resLocation">
+                                <option value="">No preference</option>
+                                <option value="Indoor">Indoor</option>
+                                <option value="Window">Window</option>
+                                <option value="Garden">Garden</option>
+                                <option value="VIP">VIP</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Special Requests</label>
+                        <textarea class="form-control" id="resNotes" placeholder="Allergies, celebrations, dietary preferences..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Reserve Now</button>
+                </form>
+            </div>
+
+            <div id="reservationSuccess" class="hidden">
+                <!-- Success message will be shown here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Delivery Page -->
+    <div class="page-section" id="delivery">
+        <div class="container">
+            <h2 class="section-title">Order for Delivery</h2>
+            
+            <div class="features-grid mb-32">
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Minimum Order</h3>
+                    <p>₹500</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Delivery Charges</h3>
+                    <p>₹50 (Free above ₹1000)</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Delivery Time</h3>
+                    <p>30-45 minutes</p>
+                </div>
+            </div>
+
+            <div id="deliveryCart" style="max-width: 800px; margin: 0 auto;">
+                <h3 style="margin-bottom: var(--space-24);">Your Cart</h3>
+                <div id="cartItems">
+                    <p style="color: var(--color-text-secondary); text-align: center;">Your cart is empty. <a href="#menu" onclick="showPage('menu')" style="color: var(--color-gold);">Browse our menu</a> to add items.</p>
+                </div>
+
+                <div id="cartSummary" class="hidden">
+                    <div class="cart-summary">
+                        <div class="cart-row">
+                            <span>Subtotal:</span>
+                            <span id="cartSubtotal">₹0</span>
+                        </div>
+                        <div class="cart-row">
+                            <span>Delivery Charges:</span>
+                            <span id="cartDelivery">₹0</span>
+                        </div>
+                        <div class="cart-row">
+                            <span>Tax (5%):</span>
+                            <span id="cartTax">₹0</span>
+                        </div>
+                        <div class="cart-row cart-total">
+                            <span>Total:</span>
+                            <span id="cartTotal">₹0</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: var(--space-24);">
+                        <div class="form-group">
+                            <label class="form-label">Delivery Address *</label>
+                            <textarea class="form-control" id="deliveryAddress" placeholder="Enter your complete delivery address..."></textarea>
+                        </div>
+
+                        <button class="btn btn-primary" style="width: 100%;" onclick="proceedToPayment()">Proceed to Payment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div class="page-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-32); margin-bottom: var(--space-48);">
+                <div>
+                    <h3 style="margin-bottom: var(--space-24); color: var(--color-gold);">Contact Form</h3>
+                    <form onsubmit="submitContact(event)">
+                        <div class="form-group">
+                            <label class="form-label">Name *</label>
+                            <input type="text" class="form-control" id="contactName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email *</label>
+                            <input type="email" class="form-control" id="contactEmail" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="contactPhone">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Subject *</label>
+                            <input type="text" class="form-control" id="contactSubject" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Message *</label>
+                            <textarea class="form-control" id="contactMessage" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: var(--space-24); color: var(--color-gold);">Contact Information</h3>
+                    <div class="highlight-card" style="margin-bottom: var(--space-16);">
+                        <p style="margin-bottom: var(--space-12);"><strong>📍 Address</strong></p>
+                        <p style="color: var(--color-text-secondary);">123 Food Street, Delhi NCR, India</p>
+                    </div>
+
+                    <div class="highlight-card" style="margin-bottom: var(--space-16);">
+                        <p style="margin-bottom: var(--space-12);"><strong>📞 Phone</strong></p>
+                        <p><a href="tel:+919876543210" style="color: var(--color-gold);">+91-9876543210</a></p>
+                    </div>
+
+                    <div class="highlight-card" style="margin-bottom: var(--space-16);">
+                        <p style="margin-bottom: var(--space-12);"><strong>📧 Email</strong></p>
+                        <p><a href="mailto:contact@goldenfork.com" style="color: var(--color-gold);">contact@goldenfork.com</a></p>
+                    </div>
+
+                    <div class="highlight-card">
+                        <p style="margin-bottom: var(--space-12);"><strong>🌐 Social Media</strong></p>
+                        <div class="social-links" style="font-size: 24px;">
+                            <a href="https://facebook.com/goldenfork" target="_blank" style="color: var(--color-gold);">📘</a>
+                            <a href="https://instagram.com/goldenfork" target="_blank" style="color: var(--color-gold);">📷</a>
+                            <a href="https://twitter.com/goldenfork" target="_blank" style="color: var(--color-gold);">🐦</a>
+                            <a href="https://youtube.com/goldenfork" target="_blank" style="color: var(--color-gold);">📹</a>
+                        </div>
+                    </div>
+
+                    <h3 style="margin: var(--space-32) 0 var(--space-16); color: var(--color-gold);">Operating Hours</h3>
+                    <div class="hours-table" style="background: var(--color-surface); padding: var(--space-16); border-radius: var(--radius-base); border: 1px solid var(--color-card-border);">
+                        <div class="hours-row">
+                            <span>Lunch</span>
+                            <span>12:00 PM - 3:00 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span>Dinner</span>
+                            <span>6:00 PM - 11:00 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span>Closed</span>
+                            <span style="color: var(--color-orange);">Mondays</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About The Golden Fork</h3>
+                <p>Authentic Indian cuisine with modern comfort and safety standards. Serving Delhi NCR since 2015.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#menu" onclick="showPage('menu')">Menu</a></li>
+                    <li><a href="#reservations" onclick="showPage('reservations')">Reservations</a></li>
+                    <li><a href="#delivery" onclick="showPage('delivery')">Delivery</a></li>
+                    <li><a href="#contact" onclick="showPage('contact')">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📞 +91-9876543210</p>
+                <p>📧 contact@goldenfork.com</p>
+                <p>📍 123 Food Street, Delhi NCR</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe for special offers and updates</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email" id="newsletterEmail">
+                    <button onclick="subscribeNewsletter()">Subscribe</button>
+                </div>
+                <div class="social-links" style="margin-top: var(--space-16);">
+                    <a href="https://facebook.com/goldenfork" target="_blank" class="social-link">📘</a>
+                    <a href="https://instagram.com/goldenfork" target="_blank" class="social-link">📷</a>
+                    <a href="https://twitter.com/goldenfork" target="_blank" class="social-link">🐦</a>
+                    <a href="https://youtube.com/goldenfork" target="_blank" class="social-link">📹</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 The Golden Fork. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+// Menu Data
+const menuItems = [
+    {id: 1, name: 'Paneer Butter Masala', price: 280, category: 'Main Course', dietary: 'Vegetarian', description: 'Rich and creamy tomato-based curry with cottage cheese', allergens: ['Dairy', 'Nuts'], rating: 4.9, reviews: 450},
+    {id: 2, name: 'Dal Makhani', price: 220, category: 'Main Course', dietary: 'Vegetarian', description: 'Creamy black lentils cooked with butter and cream', allergens: ['Dairy'], rating: 4.7, reviews: 380},
+    {id: 3, name: 'Chicken Tikka Masala', price: 320, category: 'Main Course', dietary: 'Non-Vegetarian', description: 'Grilled chicken in spiced tomato cream sauce', allergens: ['Dairy'], rating: 4.8, reviews: 520},
+    {id: 4, name: 'Butter Chicken', price: 340, category: 'Main Course', dietary: 'Non-Vegetarian', description: 'Tender chicken in rich buttery tomato gravy', allergens: ['Dairy', 'Nuts'], rating: 4.9, reviews: 680},
+    {id: 5, name: 'Prawn Curry', price: 420, category: 'Main Course', dietary: 'Non-Vegetarian', description: 'Coastal style prawns in coconut curry', allergens: ['Shellfish'], rating: 4.6, reviews: 290},
+    {id: 6, name: 'Vegetable Biryani', price: 240, category: 'Main Course', dietary: 'Vegetarian', description: 'Fragrant basmati rice with mixed vegetables and spices', allergens: [], rating: 4.7, reviews: 410},
+    {id: 7, name: 'Paneer Tikka', price: 260, category: 'Starter', dietary: 'Vegetarian', description: 'Marinated and grilled cottage cheese cubes', allergens: ['Dairy', 'Nuts'], rating: 4.8, reviews: 320},
+    {id: 8, name: 'Veg Spring Rolls', price: 180, category: 'Starter', dietary: 'Vegan', description: 'Crispy rolls with vegetable filling', allergens: ['Gluten'], rating: 4.5, reviews: 210},
+    {id: 9, name: 'Mushroom Manchurian', price: 200, category: 'Starter', dietary: 'Vegan', description: 'Indo-Chinese style fried mushrooms', allergens: ['Gluten', 'Soy'], rating: 4.6, reviews: 180},
+    {id: 10, name: 'Fish Fry', price: 280, category: 'Starter', dietary: 'Non-Vegetarian', description: 'Crispy fried fish with aromatic spices', allergens: ['Fish', 'Gluten'], rating: 4.7, reviews: 270},
+    {id: 11, name: 'Gulab Jamun', price: 80, category: 'Dessert', dietary: 'Vegetarian', description: 'Sweet milk dumplings in sugar syrup', allergens: ['Dairy', 'Eggs'], rating: 4.9, reviews: 350},
+    {id: 12, name: 'Mango Lassi', price: 90, category: 'Beverage', dietary: 'Vegetarian', description: 'Sweet yogurt-based mango drink', allergens: ['Dairy'], rating: 4.8, reviews: 290}
+];
+
+// State
+let currentFilters = {
+    category: 'all',
+    price: 'all',
+    dietary: 'all',
+    search: ''
+};
+
+let cart = [];
+
+// Page Navigation
+function showPage(pageName) {
+    document.querySelectorAll('.page-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    document.getElementById(pageName).classList.add('active');
+    
+    if (pageName === 'menu') {
+        renderMenu();
+    } else if (pageName === 'delivery') {
+        renderCart();
+    }
+    
+    // Close mobile menu
+    document.getElementById('navMenu').classList.remove('active');
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
+}
+
+function toggleMenu() {
+    document.getElementById('navMenu').classList.toggle('active');
+}
+
+// Menu Functions
+function renderMenu() {
+    const grid = document.getElementById('menuGrid');
+    const filtered = filterMenuItems();
+    
+    if (filtered.length === 0) {
+        grid.innerHTML = '<p style="text-align: center; color: var(--color-text-secondary); grid-column: 1/-1;">No items found matching your filters.</p>';
+        return;
+    }
+    
+    grid.innerHTML = filtered.map(item => `
+        <div class="menu-item">
+            <div class="menu-item-header">
+                <h3>${item.name}</h3>
+                <span class="menu-item-price">₹${item.price}</span>
+            </div>
+            <div class="menu-item-meta">
+                <span class="badge">${item.category}</span>
+                <span class="badge ${item.dietary === 'Vegetarian' ? 'badge-veg' : item.dietary === 'Non-Vegetarian' ? 'badge-non-veg' : ''}">
+                    ${item.dietary === 'Vegetarian' ? '● Veg' : item.dietary === 'Non-Vegetarian' ? '● Non-Veg' : item.dietary}
+                </span>
+                ${item.allergens.length > 0 ? `<span class="allergen-badge">⚠️ ${item.allergens.length} allergen(s)</span>` : ''}
+            </div>
+            <p class="menu-item-description">${item.description}</p>
+            ${item.allergens.length > 0 ? `<p style="font-size: 12px; color: var(--color-text-secondary); margin-bottom: 8px;"><strong>Allergens:</strong> ${item.allergens.join(', ')}</p>` : ''}
+            <div class="menu-item-rating">★ ${item.rating} (${item.reviews} reviews)</div>
+            <button class="btn btn-primary" onclick="addToCart(${item.id})">Order Now - ₹${item.price}</button>
+        </div>
+    `).join('');
+}
+
+function filterMenuItems() {
+    return menuItems.filter(item => {
+        // Category filter
+        if (currentFilters.category !== 'all' && item.category !== currentFilters.category) {
+            return false;
+        }
+        
+        // Price filter
+        if (currentFilters.price !== 'all') {
+            if (currentFilters.price === '0-200' && item.price >= 200) return false;
+            if (currentFilters.price === '200-400' && (item.price < 200 || item.price >= 400)) return false;
+            if (currentFilters.price === '400+' && item.price < 400) return false;
+        }
+        
+        // Dietary filter
+        if (currentFilters.dietary !== 'all' && item.dietary !== currentFilters.dietary) {
+            return false;
+        }
+        
+        // Search filter
+        if (currentFilters.search && !item.name.toLowerCase().includes(currentFilters.search.toLowerCase())) {
+            return false;
+        }
+        
+        return true;
+    });
+}
+
+function filterMenu(filterType, value, button) {
+    currentFilters[filterType] = value;
+    
+    // Update button states
+    const filterGroup = button.parentElement;
+    filterGroup.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+    
+    renderMenu();
+}
+
+function searchMenu(query) {
+    currentFilters.search = query;
+    renderMenu();
+}
+
+// Cart Functions
+function addToCart(itemId) {
+    const item = menuItems.find(i => i.id === itemId);
+    const existingItem = cart.find(i => i.id === itemId);
+    
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ ...item, quantity: 1 });
+    }
+    
+    alert(`${item.name} added to cart!\nGo to Delivery page to checkout.`);
+}
+
+function renderCart() {
+    const cartItemsDiv = document.getElementById('cartItems');
+    const cartSummaryDiv = document.getElementById('cartSummary');
+    
+    if (cart.length === 0) {
+        cartItemsDiv.innerHTML = '<p style="color: var(--color-text-secondary); text-align: center;">Your cart is empty. <a href="#menu" onclick="showPage(\'menu\')" style="color: var(--color-gold);">Browse our menu</a> to add items.</p>';
+        cartSummaryDiv.classList.add('hidden');
+        return;
+    }
+    
+    cartItemsDiv.innerHTML = cart.map((item, index) => `
+        <div class="cart-item">
+            <div>
+                <h4>${item.name}</h4>
+                <p style="color: var(--color-text-secondary); font-size: 14px;">₹${item.price} × ${item.quantity}</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <span style="font-weight: 700; color: var(--color-gold);">₹${item.price * item.quantity}</span>
+                <button class="btn btn-secondary" style="padding: 4px 12px; font-size: 12px;" onclick="removeFromCart(${index})">Remove</button>
+            </div>
+        </div>
+    `).join('');
+    
+    // Calculate totals
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const deliveryCharge = subtotal >= 1000 ? 0 : (subtotal >= 500 ? 50 : 0);
+    const tax = subtotal * 0.05;
+    const total = subtotal + deliveryCharge + tax;
+    
+    document.getElementById('cartSubtotal').textContent = `₹${subtotal.toFixed(2)}`;
+    document.getElementById('cartDelivery').textContent = deliveryCharge === 0 ? 'FREE' : `₹${deliveryCharge.toFixed(2)}`;
+    document.getElementById('cartTax').textContent = `₹${tax.toFixed(2)}`;
+    document.getElementById('cartTotal').textContent = `₹${total.toFixed(2)}`;
+    
+    cartSummaryDiv.classList.remove('hidden');
+    
+    if (subtotal < 500) {
+        cartItemsDiv.innerHTML += `<p style="color: var(--color-orange); text-align: center; margin-top: 16px; font-weight: 600;">⚠️ Minimum order amount is ₹500. Add ₹${(500 - subtotal).toFixed(2)} more.</p>`;
+    }
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    renderCart();
+}
+
+function proceedToPayment() {
+    const address = document.getElementById('deliveryAddress').value.trim();
+    
+    if (!address) {
+        alert('Please enter your delivery address.');
+        return;
+    }
+    
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    
+    if (subtotal < 500) {
+        alert('Minimum order amount is ₹500.');
+        return;
+    }
+    
+    const deliveryCharge = subtotal >= 1000 ? 0 : 50;
+    const tax = subtotal * 0.05;
+    const total = subtotal + deliveryCharge + tax;
+    
+    alert(`Order Placed Successfully!\n\nOrder Total: ₹${total.toFixed(2)}\nDelivery Address: ${address}\n\nEstimated delivery time: 30-45 minutes\n\nThank you for ordering from The Golden Fork!`);
+    
+    cart = [];
+    document.getElementById('deliveryAddress').value = '';
+    renderCart();
+}
+
+// Form Submissions
+function submitReservation(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('resName').value;
+    const email = document.getElementById('resEmail').value;
+    const phone = document.getElementById('resPhone').value;
+    const date = document.getElementById('resDate').value;
+    const time = document.getElementById('resTime').value;
+    const guests = document.getElementById('resGuests').value;
+    const location = document.getElementById('resLocation').value || 'No preference';
+    const notes = document.getElementById('resNotes').value;
+    
+    const confirmationId = 'RES' + Date.now();
+    
+    document.getElementById('reservationForm').classList.add('hidden');
+    document.getElementById('reservationSuccess').classList.remove('hidden');
+    document.getElementById('reservationSuccess').innerHTML = `
+        <div class="success-message">
+            <h2>✅ Reservation Confirmed!</h2>
+            <p>Your table has been reserved successfully.</p>
+            
+            <div class="confirmation-details">
+                <p><strong>Confirmation ID:</strong> ${confirmationId}</p>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Date:</strong> ${date}</p>
+                <p><strong>Time:</strong> ${time}</p>
+                <p><strong>Party Size:</strong> ${guests} guests</p>
+                <p><strong>Table Location:</strong> ${location}</p>
+                ${notes ? `<p><strong>Special Requests:</strong> ${notes}</p>` : ''}
+            </div>
+            
+            <p style="margin-top: 16px; color: var(--color-text-secondary);">A confirmation email has been sent to ${email}</p>
+            
+            <div style="display: flex; gap: 16px; justify-content: center; margin-top: 24px;">
+                <button class="btn btn-primary" onclick="location.reload()">Make Another Reservation</button>
+                <button class="btn btn-secondary" onclick="showPage('home')">Back to Home</button>
+            </div>
+        </div>
+    `;
+    
+    window.scrollTo(0, 0);
+}
+
+function submitContact(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('contactName').value;
+    const email = document.getElementById('contactEmail').value;
+    
+    alert(`Thank you for contacting us, ${name}!\n\nWe have received your message and will respond to ${email} within 24 hours.`);
+    
+    event.target.reset();
+}
+
+function subscribeNewsletter() {
+    const email = document.getElementById('newsletterEmail').value.trim();
+    
+    if (!email) {
+        alert('Please enter your email address.');
+        return;
+    }
+    
+    alert(`Thank you for subscribing!\n\nYou will receive our latest updates and special offers at ${email}.`);
+    document.getElementById('newsletterEmail').value = '';
+}
+
+// Set minimum date for reservation
+window.addEventListener('DOMContentLoaded', () => {
+    const today = new Date().toISOString().split('T')[0];
+    const dateInput = document.getElementById('resDate');
+    if (dateInput) {
+        dateInput.setAttribute('min', today);
+    }
+});
+    </script>
+</body>
+</html>
